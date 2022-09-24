@@ -1,3 +1,7 @@
+#Una confitería es famosa por sus dos especialidades de tartas: 
+#la tarta de Vainilla y la tarta de Limón. La tarta de Vainilla requiere para su elaboración
+# kilo de azúcar y 9 huevos y tiene un precio de venta de $120. La tarta de Limón necesita 1.5 kilos y 7 huevos, 
+#y tiene un precio de venta de $150. En el almacén les quedaban 15 kilos de azúcar y 140 huevos
 # Importar la libreria
 library(lpSolve)
 
