@@ -1,0 +1,69 @@
+#Una confitería es famosa por sus dos especialidades de tartas: 
+#la tarta de Vainilla y la tarta de Limón. La tarta de Vainilla requiere para su elaboración
+# kilo de azúcar y 9 huevos y tiene un precio de venta de $120. La tarta de Limón necesita 1.5 kilos y 7 huevos, 
+#y tiene un precio de venta de $150. En el almacén les quedaban 15 kilos de azúcar y 140 huevos
+# Importar la libreria
+library(matlib)
+
+# Asignar los coeficientes de las restricciones
+# 0.75x1 + 1.5 x2 ≤ 15        0.75  9   (1)
+#    9x1 +    7x2 ≤140        1.5   7   (2)
+# Definir el número de columnas en 2 y el número de filas en 3
+A<-matrix(c(0.75, 9, 1.5, 7), ncol = 2, nrow = 2)
+
+# Asignar los valores del lado derecho de las desiguldades
+# 0.75x1 + 1.5 x2 ≤ 15        15   (1)
+#    9x1 +    7x2 ≤140        140   7   (2)
+b<- c(15,140)
+
+# Se grafican las ecuaciones
+plotEqn(A,b, xlim=c(0,140), labels=TRUE)
+
+# entonces las matrices A y B quedan como:
+# [A=
+#             0.75  9
+#             1.5   7
+# ;B=
+#             15
+#             140
+# ]
+
+# Definiendo matricialmente las funciones dentro de R, quedaría como
+
+A <- matrix(c(0.75,1.5,9,7), nrow = 2, ncol = 2, byrow = T)
+# Mostrar la matriz A
+A
+##        [,1] [,2]
+##[1,]    0.75  9
+##[2,]    1.5   7
+
+B <- matrix(c(15,140), nrow = 2, ncol = 1, byrow = F)
+# Mostrar la matriz A
+B
+##     [,1]
+##[1,]  15
+##[2,]  140
+
+# Resolviendo nos queda como
+r <- solve(t(A)%*%A)%*%t(A)%*%B
+# Mostrar la matriz r
+r
+
+A <- matrix(c(0,10,12.72,3.63,15.55,0), nrow = 3, ncol = 2, byrow = T)
+# Mostrar la matriz A
+A
+##     [,1] [,2]
+##[1,]    0   10
+##[2,]    12.72   3.63
+##[3,]    15.55   0
+B <- matrix(c(15,140), nrow = 2, ncol = 1, byrow = F)
+# Mostrar la matriz A
+B
+##     [,1]
+##[1,] 15
+##[2,] 140
+
+# Resolviendo nos queda como
+r <- solve(t(A)%*%A)%*%t(A)%*%B
+# Mostrar la matriz r
+r
